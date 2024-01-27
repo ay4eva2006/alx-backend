@@ -43,7 +43,7 @@ class Server:
                   page_size: int = 10) -> Dict[str, Any]:
         """Returns a dictionary containing hypermedia pagination"""
         data = self.get_page(page, page_size)
-        next_page = None if len(self.get_page(
+        next_page: int = page + 1 if len(self.get_page(
             page + 1, page_size)) > 0 else None
         prev_page = None if page - 1 <= 0 else page - 1
         total_pages = len(self.dataset()) / page_size
