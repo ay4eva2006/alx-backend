@@ -44,7 +44,7 @@ class Server:
         """Returns a dictionary containing hypermedia pagination"""
         data = self.get_page(page, page_size)
         next_page = None if len(self.get_page(
-            page + 1, page_size)) else page + 1
+            page + 1, page_size)) > 0 else None
         prev_page = None if page - 1 <= 0 else page - 1
         total_pages = len(self.dataset()) / page_size
 
